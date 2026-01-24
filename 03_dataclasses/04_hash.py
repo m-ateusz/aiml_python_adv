@@ -5,17 +5,24 @@ ale aby obiekt mógł być umieszczony w zbiorze lub jako klucz
 w słowniku, musi być jeszcze zaimplementowana metoda __hash__
 """
 
-@dataclass
+@dataclass(frozen=True, kw_only=True, slots=True)
 class Point:
     x:int
-    y:int
+    y:int = -99
 
+coordinates = { 'y': -20, 'x': -10 }
+# coordinates = [10,12]
+
+u1 = Point(**coordinates)
 
 points = set([
-    Point(0,0),
-    Point(1,1),
-    Point(-2,3),
-    Point(-1,4),
-    Point(3,5),
+    u1,
+    Point(x=1,y=1),
+    Point(x=-2,y=3),
+    Point(x=-1),
+    Point(x=3),
 ])
+
+print(f'{points=} {u1 in points = }')
+
 

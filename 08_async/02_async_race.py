@@ -5,11 +5,11 @@ async def increment_value(shared_value, lock):
     name = f'Task-{random.randint(1,100)}'
     for _ in range(5):
         await asyncio.sleep(random.uniform(0.2, 0.5))
-        # async with lock:
-        x = shared_value['value']
-        await asyncio.sleep(random.uniform(0.1, 0.2))
-        shared_value['value'] = x + 1
-        print(f'Updated value: {shared_value["value"]} {name=}')
+        async with lock:
+            x = shared_value['value']
+            await asyncio.sleep(0.2)
+            shared_value['value'] = x + 1
+            print(f'Updated value: {shared_value["value"]} {name=}')
 
 async def main():
     shared_value = {'value': 0}

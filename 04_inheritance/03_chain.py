@@ -8,13 +8,16 @@ class User(Account):
     pass
 
 class Admin(User):
-    pass
+    def __init__(self, login, acl):
+        super().__init__(login)
+        self.acl = acl
+
 
 class Guest(Account):
     pass
 
 user = User('mateusz')
-admin = Admin('admin')
+admin = Admin('admin', 'test')
 guest = Guest('guest')
 
 print(f'{isinstance(user, Admin) = }')

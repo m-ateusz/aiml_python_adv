@@ -3,11 +3,14 @@ from dataclasses import dataclass, field
 Domyślnie dataclasses mają zaimplementowaną metodę __eq__,
 ale to nie wystarcza do ustanowienia porządku liniowego
 """
-@dataclass(order=True)
+@dataclass()
 class User:
     login: str
 
-@dataclass(order=True)
+
+
+
+@dataclass()
 class Point:
     x:int
     y:int
@@ -24,3 +27,5 @@ points = [
 print(f'{min(points)=}')
 print(f'{max(points)=}')
 print(f'{sorted(points)=}')
+
+

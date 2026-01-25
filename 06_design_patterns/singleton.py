@@ -11,6 +11,7 @@ class Singleton:
             print('Returning existing singleton instance')
 
             return cls._instance
+
     def __init__(self, model: str) -> None:
         self.model = model
 
@@ -26,4 +27,15 @@ y.work()
 z.work()
 
 print(f'{x is y = } {hex(id(x))=} {hex(id(y))=} {hex(id(z))=}')
+
+class NaiveSingleton:
+    _instance = None
+
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = NaiveSingleton()
+        return cls._instance
+
+
 

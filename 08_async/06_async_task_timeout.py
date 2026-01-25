@@ -8,11 +8,11 @@ async def long_task():
     print("Zadanie rozpoczęte...")
 
     # await asyncio.sleep(5)
-    time.sleep(5)
-    # for i in itertools.count(1):
-    #     await asyncio.sleep(0)
-    #     time.sleep(0.3)
-    #     print('.', end='')
+    # time.sleep(5)
+    for i in itertools.count(1):
+        await asyncio.sleep(0)
+        time.sleep(0.3)
+        print('.', end='')
     print("Zadanie zakończone!")
     return "Wynik zadania"
 

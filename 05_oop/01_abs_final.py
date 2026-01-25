@@ -8,8 +8,9 @@ class Document(ABC):
 
     def __new__(cls, filename: str):
         ext = filename.split('.')[-1]
-
+        print(f'Szukam klasy dla pliku: {filename}')
         for plugin in cls.__subclasses__():
+            print(f'Znalazłem następującą klasę pochodną: {plugin.__name__}')
             if ext in plugin.EXT:
                 return object.__new__(plugin)
 
@@ -46,7 +47,7 @@ class JpegDocument(Document):
         print(f'JPEG {self.__class__.__name__}: {self.filename}')
 
 
-document = Document('test.pdf')
+document = Document('test.pdf') # Jpge JPGDocument, JPEGDocumen, JpegDocument, JpgDocument
 document.show()
 print(f'{type(document)=}')
 
@@ -73,4 +74,3 @@ class TxtDocument(Document):
 document = Document('test.txt')
 document.show()
 
-print(f'{"Mateusz".upper() = } {str.upper("Mateusz") = }')

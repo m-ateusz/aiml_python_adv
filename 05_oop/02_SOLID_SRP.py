@@ -3,7 +3,8 @@ class Report:
        self.data = data
 
 class ReportFormatter:
-   def generate_text(self, report: Report) -> str:
+   @staticmethod
+   def generate_text(report: Report) -> str:
        lines = ["REPORT"]
        for row in report.data:
            lines.append(f"- {row['name']}: {row['value']}")
@@ -23,5 +24,5 @@ class LogWriter:
        pass
 
 report = Report([{'name': 'mateusz', 'value': '10$'}, {'name': 'alice', 'value': '-10$'}])
-text = ReportFormatter().generate_text(report)
+text = ReportFormatter.generate_text(report)
 print(f'{text}')

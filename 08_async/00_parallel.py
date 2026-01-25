@@ -1,6 +1,6 @@
 import numpy as np
 import logging
-N = 1000
+N = 5000
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 logger = logging.getLogger(__name__)

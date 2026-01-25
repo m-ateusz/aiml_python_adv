@@ -34,6 +34,6 @@ class Pesel:
             case _:
                 y += 1800
         m %= 20
-
+        self.gender = GENDER((int(self.number[-2])+1) % 2)
         print(f'{y=} {m=} {d=}')
         self.birthday = date(y, m, d)

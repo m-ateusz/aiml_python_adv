@@ -14,8 +14,7 @@ async def main():
             task("A", 2),
             task("B", 3, fail=True),  # To zadanie rzuci wyjątek
             task("C", 1),
-            # return_exceptions=True
-
+            return_exceptions=True
         )
         print("\nWyniki:", results)
     except Exception as e:

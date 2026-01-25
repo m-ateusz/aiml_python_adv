@@ -7,6 +7,7 @@ async def fetch_data(source_id):
     wait_time = random.randint(50, 500)
     print(f'[{source_id:04d}] przed sleep: {wait_time}')
     await asyncio.sleep(wait_time/1000)
+
     # time.sleep(wait_time/1000)
     print(f'[{source_id:04d}] po sleep')
     return source_id
